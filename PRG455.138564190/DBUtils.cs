@@ -13,7 +13,7 @@ namespace PRG455._138564190
     {
         static string connectionString = Properties.Settings.Default.connectionString;
         #region User
-        #region Isert a new user
+     
         /// <summary>
         /// Insert a new user into database
         /// </summary>
@@ -29,8 +29,8 @@ namespace PRG455._138564190
             con.Close();
             return true;
         }
-        #endregion
-        #region Update User
+      
+      
         /// <summary>
         /// Update existing user in database
         /// </summary>
@@ -46,8 +46,8 @@ namespace PRG455._138564190
             con.Close();
             return true;
         }
-        #endregion
-        #region Delete User
+       
+       
         /// <summary>
         /// Delete the user
         /// </summary>
@@ -63,9 +63,12 @@ namespace PRG455._138564190
             con.Close();
             return true;
         }
-        #endregion
+        
 
-        #region GetUsers
+       /// <summary>
+       /// Get User list
+       /// </summary>
+       /// <returns></returns>
         public static List<User> GetUserList()
         {
 
@@ -87,10 +90,10 @@ namespace PRG455._138564190
         }
 
         #endregion
-        #endregion
+    
 
 
-        #region insert a new screening
+        #region Screening
         /// <summary>
         /// Insert a screening of a user
         /// </summary>
@@ -115,6 +118,10 @@ namespace PRG455._138564190
             con.Close();
             return true;
         }
+    /// <summary>
+    /// Fetch screening data from db
+    /// </summary>
+    /// <returns></returns>
         public static List<Screening> GetScreeningList()
         {
 

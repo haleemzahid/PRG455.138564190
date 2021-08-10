@@ -10,7 +10,12 @@ namespace PRG455._138564190
 {
     public static class Core
     {
+        #region User
         public static User user = new User();
+        /// <summary>
+        /// Get Selected user from datagridview selected row
+        /// </summary>
+        /// <param name="selectedRow"></param>
         internal static void GetUserFromDataGridRow(DataGridViewSelectedRowCollection selectedRow)
         {
             User _user = new User();
@@ -27,7 +32,12 @@ namespace PRG455._138564190
            
             
         }
-
+        #endregion 
+        #region Reports
+        /// <summary>
+        /// Get data from both table and assign to list of reports
+        /// </summary>
+        /// <returns></returns>
         internal static List<Reports> FetchReports()
         {
             var reportList = new List<Reports>();
@@ -56,5 +66,6 @@ namespace PRG455._138564190
 
 
         }
+        #endregion
     }
 }

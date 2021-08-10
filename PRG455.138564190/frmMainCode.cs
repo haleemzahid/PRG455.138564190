@@ -20,20 +20,28 @@ namespace PRG455._138564190
             InitializeComponent();
             GetUserType();
             FetchDataFromDB();
-        dataGridView2.DataSource = Core.FetchReports();
+            dataGridView2.DataSource = Core.FetchReports();
         }
-
+        #region User
+        /// <summary>
+        /// refresh data from database
+        /// </summary>
         private void FetchDataFromDB()
         {
-               var userlist= DBUtils.GetUserList();
+            try
+            {
+
+            var userlist = DBUtils.GetUserList();
             dataGridView1.DataSource = userlist;
             cboUsers.DataSource = userlist.Where(x => x.UserFlagged == false).ToList();
+            }
+            catch(Exception ex) { }
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'screeningDataSet1.Table' table. You can move, or remove it, as needed.
-        
+
         }
 
         private void cbUserType_SelectedIndexChanged(object sender, EventArgs e)
@@ -48,134 +56,163 @@ namespace PRG455._138564190
 
         private void tableBindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
-            
-           
-       
+
+
+
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            if(IsUpdate)
+            try { 
+            if (IsUpdate)
             {
                 if (!GetDataFromUI())
                     return;
-                if(DBUtils.UpdateUser(user))
+                if (DBUtils.UpdateUser(user))
                 {
 
-              
-                MessageBox.Show("User Updated...");
+
+                    MessageBox.Show("User Updated...");
                 }
                 IsUpdate = false;
-           
+
             }
             else
             {
 
-            user = new User();
+                user = new User();
                 if (!GetDataFromUI())
                     return;
                 if (DBUtils.InsertUser(user))
-                MessageBox.Show("User Added...");
+                    MessageBox.Show("User Added...");
             }
             NullData();
-                FetchDataFromDB();
+            FetchDataFromDB();
 
-            
+            }
+            catch (Exception ex) { }
         }
 
         private void btnReset_Click(object sender, EventArgs e)
         {
-            if(user.UserId>0)
+            try { 
+            if (user.UserId > 0)
             {
 
-            user.UserFlagged= false;
+                user.UserFlagged = false;
                 DBUtils.UpdateUser(user);
                 FetchDataFromDB();
             }
-
+            }
+            catch (Exception ex) { }
         }
-
         private void gbUser_Enter(object sender, EventArgs e)
         {
-           
+
 
         }
         public void GetUserType()
         {
             cboUserType.Items.Add("Student");
             cboUserType.Items.Add("Employee");
-            
+
         }
         private void dataGridView1_SelectionChanged(object sender, EventArgs e)
         {
-           
-             Core.GetUserFromDataGridRow(dataGridView1.SelectedRows);
-            user = Core.user;
-        }
+            try
+            {
 
+            
+            Core.GetUserFromDataGridRow(dataGridView1.SelectedRows);
+            user = Core.user;
+            }
+            catch (Exception ex) { }
+        }
+        /// <summary>
+        /// when you will click on edit it will populate selected user data to ui
+        /// </summary>
         private void PopulateDataToUI()
         {
-            
-                
+
+
             txtUserName.Text = user.UserName;
             cboUserType.SelectedItem = user.UserType;
-          
-            
+
+
         }
+       /// <summary>
+       /// This will get data from UI for adding and updating
+       /// </summary>
+       /// <returns></returns>
         private bool GetDataFromUI()
         {
-            if (cboUserType.SelectedItem == null||txtUserName.Text==string.Empty)
+            try { 
+            if (cboUserType.SelectedItem == null || txtUserName.Text == string.Empty)
             {
                 MessageBox.Show("Please do not leave fields empty");
                 return false;
             }
 
 
-             user.UserName= txtUserName.Text;
+            user.UserName = txtUserName.Text;
             user.UserType = cboUserType.SelectedItem.ToString();
-
+            }
+            catch (Exception ex) { }
             return true;
         }
-
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            if (user != null)
+            try
             {
-                IsUpdate = true;
-                PopulateDataToUI();
-                FetchDataFromDB();
-                return;
+                if (user != null)
+                {
+                    IsUpdate = true;
+                    PopulateDataToUI();
+                    FetchDataFromDB();
+                    return;
+                }
             }
-            
-
-
+            catch (Exception ex) { }
         }
-
         private void btnRemove_Click(object sender, EventArgs e)
-        {
-            
+    {
 
-            if(user.UserId>0)
-            DBUtils.RemoveUser(user);
+        try
+        {
+
+
+            if (user.UserId > 0)
+                DBUtils.RemoveUser(user);
             FetchDataFromDB();
         }
-
+        catch (Exception ex) { } }  
         public void NullData()
         {
             IsUpdate = false;
             txtUserName.Text = null;
-                cboUserType.SelectedItem = null;
-                user = null;
+            cboUserType.SelectedItem = null;
+            user = null;
             Core.user = null;
         }
-
         private void btnClear_Click(object sender, EventArgs e)
         {
             NullData();
         }
+        #endregion
 
+
+
+
+
+        
+
+
+
+
+        #region Screening
         private void btnScreeningSave_Click(object sender, EventArgs e)
         {
+            try { 
             if (cboUsers.SelectedItem == null)
             {
                 MessageBox.Show("Please select a user first");
@@ -188,12 +225,14 @@ namespace PRG455._138564190
                 MessageBox.Show("User screening is completed...");
             FetchDataFromDB();
             dataGridView1.DataSource = Core.FetchReports();
-
+            }
+            catch (Exception ex) { }
 
         }
         private Screening GetScreeningDataFromUI()
         {
             Screening screening = new Screening();
+            try { 
             if (radCloseContactYes.Checked)
             {
                 screening.CloseContact = true;
@@ -226,10 +265,16 @@ namespace PRG455._138564190
             }
             screening.UserId = userr.UserId;
             screening.Date = dtDate.Value;
-            return screening;
         }
+            catch(Exception ex)
+            { 
+            }
+            return screening;
+            }
+    #endregion
 
-        private void btnSearchByDate_Click(object sender, EventArgs e)
+    #region report
+    private void btnSearchByDate_Click(object sender, EventArgs e)
         {
             dataGridView2.DataSource = Core.FetchReports().Where(x => x.Date.Date >= dtFrom.Value.Date && x.Date.Date <= dtTo.Value.Date).ToList();
             dataGridView2.Columns["Date"].Visible = false;
@@ -252,5 +297,6 @@ namespace PRG455._138564190
         {
             dataGridView1.DataSource = Core.FetchReports();
         }
+        #endregion
     }
 }
