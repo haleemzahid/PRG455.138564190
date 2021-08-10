@@ -47,7 +47,7 @@
             this.label14 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dtDate = new System.Windows.Forms.DateTimePicker();
             this.rbSno = new System.Windows.Forms.RadioButton();
             this.rbSyes = new System.Windows.Forms.RadioButton();
             this.rbTno = new System.Windows.Forms.RadioButton();
@@ -74,6 +74,9 @@
             this.label16 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btnClear = new System.Windows.Forms.Button();
+            this.cboUsers = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.btnScreeningSave = new System.Windows.Forms.Button();
             usernameLabel = new System.Windows.Forms.Label();
             userTypeLabel = new System.Windows.Forms.Label();
             this.tabApp.SuspendLayout();
@@ -236,7 +239,7 @@
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(164, 75);
             this.btnAdd.TabIndex = 12;
-            this.btnAdd.Text = "Add User";
+            this.btnAdd.Text = "Save";
             this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
@@ -256,11 +259,14 @@
             // 
             this.gbScreen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.gbScreen.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.gbScreen.Controls.Add(this.btnScreeningSave);
+            this.gbScreen.Controls.Add(this.label2);
+            this.gbScreen.Controls.Add(this.cboUsers);
             this.gbScreen.Controls.Add(this.label15);
             this.gbScreen.Controls.Add(this.label14);
             this.gbScreen.Controls.Add(this.label13);
             this.gbScreen.Controls.Add(this.label12);
-            this.gbScreen.Controls.Add(this.dateTimePicker1);
+            this.gbScreen.Controls.Add(this.dtDate);
             this.gbScreen.Controls.Add(this.rbSno);
             this.gbScreen.Controls.Add(this.rbSyes);
             this.gbScreen.Controls.Add(this.rbTno);
@@ -323,15 +329,16 @@
             this.label12.Text = "In the last 14 days, have you been in a close contact with anyone who\r\n has been " +
     "tested positive for COVID-19";
             // 
-            // dateTimePicker1
+            // dtDate
             // 
-            this.dateTimePicker1.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.Location = new System.Drawing.Point(642, 512);
-            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(199, 28);
-            this.dateTimePicker1.TabIndex = 23;
+            this.dtDate.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtDate.Location = new System.Drawing.Point(643, 518);
+            this.dtDate.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.dtDate.Name = "dtDate";
+            this.dtDate.Size = new System.Drawing.Size(199, 28);
+            this.dtDate.TabIndex = 23;
             // 
             // rbSno
             // 
@@ -414,7 +421,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(20, 541);
+            this.label11.Location = new System.Drawing.Point(20, 518);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(69, 26);
             this.label11.TabIndex = 9;
@@ -630,6 +637,34 @@
             this.btnClear.UseVisualStyleBackColor = false;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
+            // cboUsers
+            // 
+            this.cboUsers.DisplayMember = "UserName";
+            this.cboUsers.FormattingEnabled = true;
+            this.cboUsers.Location = new System.Drawing.Point(344, 65);
+            this.cboUsers.Name = "cboUsers";
+            this.cboUsers.Size = new System.Drawing.Size(300, 34);
+            this.cboUsers.TabIndex = 28;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(174, 68);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(152, 26);
+            this.label2.TabIndex = 29;
+            this.label2.Text = "Select a user";
+            // 
+            // btnScreeningSave
+            // 
+            this.btnScreeningSave.Location = new System.Drawing.Point(429, 579);
+            this.btnScreeningSave.Name = "btnScreeningSave";
+            this.btnScreeningSave.Size = new System.Drawing.Size(201, 46);
+            this.btnScreeningSave.TabIndex = 30;
+            this.btnScreeningSave.Text = "button4";
+            this.btnScreeningSave.UseVisualStyleBackColor = true;
+            this.btnScreeningSave.Click += new System.EventHandler(this.btnScreeningSave_Click);
+            // 
             // frmMainCode
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -674,7 +709,7 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dtDate;
         private System.Windows.Forms.RadioButton rbSno;
         private System.Windows.Forms.RadioButton rbSyes;
         private System.Windows.Forms.RadioButton rbTno;
@@ -704,6 +739,9 @@
         private System.Windows.Forms.ComboBox cboUserType;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button btnClear;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox cboUsers;
+        private System.Windows.Forms.Button btnScreeningSave;
     }
 }
 

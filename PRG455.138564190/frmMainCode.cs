@@ -24,7 +24,9 @@ namespace PRG455._138564190
 
         private void FetchDataFromDB()
         {
-            dataGridView1.DataSource = DBUtils.GetUserDataTable();
+               var userlist= DBUtils.GetUserList();
+            dataGridView1.DataSource = userlist;
+            cboUsers.DataSource = userlist.Where(x => x.UserFlagged == false).ToList();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -80,7 +82,14 @@ namespace PRG455._138564190
 
         private void btnReset_Click(object sender, EventArgs e)
         {
+            if(user.UserId>0)
+            {
+
             user.UserFlagged= false;
+                DBUtils.UpdateUser(user);
+                FetchDataFromDB();
+            }
+
         }
 
         private void gbUser_Enter(object sender, EventArgs e)
@@ -155,6 +164,11 @@ namespace PRG455._138564190
         private void btnClear_Click(object sender, EventArgs e)
         {
             NullData();
+        }
+
+        private void btnScreeningSave_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

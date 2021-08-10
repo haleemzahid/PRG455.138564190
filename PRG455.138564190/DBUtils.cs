@@ -66,7 +66,7 @@ namespace PRG455._138564190
         #endregion
 
         #region GetUsers
-        public static List<User> GetUserDataTable()
+        public static List<User> GetUserList()
         {
 
             List<User> userList = new List<User>();
