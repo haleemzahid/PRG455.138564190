@@ -14,5 +14,6 @@ namespace PRG455._138564190
         public bool Travelled { get; set; }
         public bool Symptoms { get; set; }
         public DateTime Date { get; set; }
+        public bool UserFlagged { get; set; }
     }
 }

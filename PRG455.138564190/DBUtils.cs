@@ -115,6 +115,25 @@ namespace PRG455._138564190
             con.Close();
             return true;
         }
+        public static List<Screening> GetScreeningList()
+        {
+
+            List<Screening> screeningList = new List<Screening>();
+
+            SqlConnection conn = new SqlConnection(connectionString);
+            SqlCommand cmd = new SqlCommand("Select * from [screening]", conn);
+            conn.Open();
+
+
+            SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(cmd);
+            DataTable dataTable = new DataTable();
+            sqlDataAdapter.Fill(dataTable);
+            foreach (DataRow item in dataTable.Rows)
+            {
+                screeningList.Add(new Screening { ScreeningId= Convert.ToInt16(item["ScreeningId"]), UserId= Convert.ToInt16(item["UserId"]), CloseContact = Convert.ToBoolean(item["CloseContact"]), Travelled = Convert.ToBoolean(item["Travelled"]), Symptoms = Convert.ToBoolean(item["Symptoms"]),Date=Convert.ToDateTime(item["Date"]) });
+            }
+            return screeningList;
+        }
         #endregion
 
 

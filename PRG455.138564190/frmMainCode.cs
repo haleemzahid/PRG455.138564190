@@ -20,6 +20,7 @@ namespace PRG455._138564190
             InitializeComponent();
             GetUserType();
             FetchDataFromDB();
+        dataGridView2.DataSource = Core.FetchReports();
         }
 
         private void FetchDataFromDB()
@@ -56,7 +57,8 @@ namespace PRG455._138564190
         {
             if(IsUpdate)
             {
-                GetDataFromUI();
+                if (!GetDataFromUI())
+                    return;
                 if(DBUtils.UpdateUser(user))
                 {
 
@@ -70,8 +72,9 @@ namespace PRG455._138564190
             {
 
             user = new User();
-                GetDataFromUI();
-            if (DBUtils.InsertUser(user))
+                if (!GetDataFromUI())
+                    return;
+                if (DBUtils.InsertUser(user))
                 MessageBox.Show("User Added...");
             }
             NullData();
@@ -119,14 +122,19 @@ namespace PRG455._138564190
           
             
         }
-        private void GetDataFromUI()
+        private bool GetDataFromUI()
         {
+            if (cboUserType.SelectedItem == null||txtUserName.Text==string.Empty)
+            {
+                MessageBox.Show("Please do not leave fields empty");
+                return false;
+            }
 
 
              user.UserName= txtUserName.Text;
             user.UserType = cboUserType.SelectedItem.ToString();
-          
 
+            return true;
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
@@ -175,15 +183,24 @@ namespace PRG455._138564190
 
             }
 
+            Screening screening = GetScreeningDataFromUI();
+            if (DBUtils.AddScreening(screening))
+                MessageBox.Show("User screening is completed...");
+            FetchDataFromDB();
+            dataGridView1.DataSource = Core.FetchReports();
 
+
+        }
+        private Screening GetScreeningDataFromUI()
+        {
             Screening screening = new Screening();
-            if(radCloseContactYes.Checked)
+            if (radCloseContactYes.Checked)
             {
                 screening.CloseContact = true;
             }
             else
             {
-              screening.CloseContact=  false;
+                screening.CloseContact = false;
             }
             if (radSymptomsYes.Checked)
             {
@@ -201,19 +218,39 @@ namespace PRG455._138564190
             {
                 screening.Travelled = false;
             }
-               var userr= (cboUsers.SelectedItem as User);
+            var userr = (cboUsers.SelectedItem as User);
             if (radFlagUser.Checked)
             {
                 userr.UserFlagged = true;
                 DBUtils.UpdateUser(userr);
             }
-                screening.UserId = userr.UserId;
+            screening.UserId = userr.UserId;
             screening.Date = dtDate.Value;
-            if (DBUtils.AddScreening(screening))
-                MessageBox.Show("User screening is completed...");
-            FetchDataFromDB();
-            
+            return screening;
+        }
 
+        private void btnSearchByDate_Click(object sender, EventArgs e)
+        {
+            dataGridView2.DataSource = Core.FetchReports().Where(x => x.Date.Date >= dtFrom.Value.Date && x.Date.Date <= dtTo.Value.Date).ToList();
+            dataGridView2.Columns["Date"].Visible = false;
+        }
+
+        private void btnSearchByPassFail_Click(object sender, EventArgs e)
+        {
+
+            dataGridView2.DataSource = Core.FetchReports().Where(x => x.UserFlagged == radPass.Checked).ToList();
+            dataGridView2.Columns["Date"].Visible = false;
+        }
+
+        private void btnSearchByName_Click(object sender, EventArgs e)
+        {
+            dataGridView2.DataSource = Core.FetchReports().Where(x => x.UserName.ToLower().Contains(txtxSearchUserName.Text)).ToList();
+            dataGridView2.Columns["Date"].Visible = false;
+        }
+
+        private void btnresetfilter_Click(object sender, EventArgs e)
+        {
+            dataGridView1.DataSource = Core.FetchReports();
         }
     }
 }

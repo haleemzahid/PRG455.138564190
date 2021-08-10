@@ -27,6 +27,34 @@ namespace PRG455._138564190
            
             
         }
-       
+
+        internal static List<Reports> FetchReports()
+        {
+            var reportList = new List<Reports>();
+            var userList = DBUtils.GetUserList();
+            var screenings = DBUtils.GetScreeningList();
+            var _reportList = (from q in userList
+                          join o in screenings on q.UserId equals o.UserId
+                          select new 
+                          {
+                UserId=q.UserId,
+                UserName=q.UserName,
+                CloseContact=o.CloseContact,
+                              Symptoms = o.Symptoms,
+                              Travelled = o.Travelled,
+                              Date=o.Date,
+                              UserFlagged=q.UserFlagged
+
+
+                          }).ToList();
+
+            foreach (var item in _reportList)
+            {
+                reportList.Add(new Reports { UserId = item.UserId, UserFlagged = item.UserFlagged, Symptoms = item.Symptoms, Travelled = item.Travelled, CloseContact = item.CloseContact, Date = item.Date, UserName = item.UserName });
+            }
+            return reportList;
+
+
+        }
     }
 }
