@@ -168,6 +168,51 @@ namespace PRG455._138564190
 
         private void btnScreeningSave_Click(object sender, EventArgs e)
         {
+            if (cboUsers.SelectedItem == null)
+            {
+                MessageBox.Show("Please select a user first");
+                return;
+
+            }
+
+
+            Screening screening = new Screening();
+            if(radCloseContactYes.Checked)
+            {
+                screening.CloseContact = true;
+            }
+            else
+            {
+              screening.CloseContact=  false;
+            }
+            if (radSymptomsYes.Checked)
+            {
+                screening.Symptoms = true;
+            }
+            else
+            {
+                screening.Symptoms = false;
+            }
+            if (radTravelledYes.Checked)
+            {
+                screening.Travelled = true;
+            }
+            else
+            {
+                screening.Travelled = false;
+            }
+               var userr= (cboUsers.SelectedItem as User);
+            if (radFlagUser.Checked)
+            {
+                userr.UserFlagged = true;
+                DBUtils.UpdateUser(userr);
+            }
+                screening.UserId = userr.UserId;
+            screening.Date = dtDate.Value;
+            if (DBUtils.AddScreening(screening))
+                MessageBox.Show("User screening is completed...");
+            FetchDataFromDB();
+            
 
         }
     }

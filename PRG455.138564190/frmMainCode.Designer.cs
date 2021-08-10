@@ -48,12 +48,12 @@
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.dtDate = new System.Windows.Forms.DateTimePicker();
-            this.rbSno = new System.Windows.Forms.RadioButton();
-            this.rbSyes = new System.Windows.Forms.RadioButton();
-            this.rbTno = new System.Windows.Forms.RadioButton();
-            this.rbTyes = new System.Windows.Forms.RadioButton();
-            this.rbCCno = new System.Windows.Forms.RadioButton();
-            this.rbCCYes = new System.Windows.Forms.RadioButton();
+            this.radSymptomsNo = new System.Windows.Forms.RadioButton();
+            this.radSymptomsYes = new System.Windows.Forms.RadioButton();
+            this.radTravelledNo = new System.Windows.Forms.RadioButton();
+            this.radTravelledYes = new System.Windows.Forms.RadioButton();
+            this.radCloseContactNo = new System.Windows.Forms.RadioButton();
+            this.radCloseContactYes = new System.Windows.Forms.RadioButton();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -77,6 +77,10 @@
             this.cboUsers = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.btnScreeningSave = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.radFlagUser = new System.Windows.Forms.RadioButton();
             usernameLabel = new System.Windows.Forms.Label();
             userTypeLabel = new System.Windows.Forms.Label();
             this.tabApp.SuspendLayout();
@@ -88,6 +92,9 @@
             this.Report.SuspendLayout();
             this.gbReport.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // usernameLabel
@@ -259,6 +266,10 @@
             // 
             this.gbScreen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.gbScreen.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.gbScreen.Controls.Add(this.radFlagUser);
+            this.gbScreen.Controls.Add(this.panel3);
+            this.gbScreen.Controls.Add(this.panel2);
+            this.gbScreen.Controls.Add(this.panel1);
             this.gbScreen.Controls.Add(this.btnScreeningSave);
             this.gbScreen.Controls.Add(this.label2);
             this.gbScreen.Controls.Add(this.cboUsers);
@@ -267,12 +278,6 @@
             this.gbScreen.Controls.Add(this.label13);
             this.gbScreen.Controls.Add(this.label12);
             this.gbScreen.Controls.Add(this.dtDate);
-            this.gbScreen.Controls.Add(this.rbSno);
-            this.gbScreen.Controls.Add(this.rbSyes);
-            this.gbScreen.Controls.Add(this.rbTno);
-            this.gbScreen.Controls.Add(this.rbTyes);
-            this.gbScreen.Controls.Add(this.rbCCno);
-            this.gbScreen.Controls.Add(this.rbCCYes);
             this.gbScreen.Controls.Add(this.label11);
             this.gbScreen.Controls.Add(this.label10);
             this.gbScreen.Controls.Add(this.label9);
@@ -334,89 +339,89 @@
             this.dtDate.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtDate.Location = new System.Drawing.Point(643, 518);
+            this.dtDate.Location = new System.Drawing.Point(641, 516);
             this.dtDate.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dtDate.Name = "dtDate";
             this.dtDate.Size = new System.Drawing.Size(199, 28);
             this.dtDate.TabIndex = 23;
             // 
-            // rbSno
+            // radSymptomsNo
             // 
-            this.rbSno.AutoSize = true;
-            this.rbSno.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbSno.Location = new System.Drawing.Point(748, 428);
-            this.rbSno.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.rbSno.Name = "rbSno";
-            this.rbSno.Size = new System.Drawing.Size(60, 26);
-            this.rbSno.TabIndex = 22;
-            this.rbSno.TabStop = true;
-            this.rbSno.Text = "No";
-            this.rbSno.UseVisualStyleBackColor = true;
+            this.radSymptomsNo.AutoSize = true;
+            this.radSymptomsNo.Checked = true;
+            this.radSymptomsNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radSymptomsNo.Location = new System.Drawing.Point(95, 24);
+            this.radSymptomsNo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.radSymptomsNo.Name = "radSymptomsNo";
+            this.radSymptomsNo.Size = new System.Drawing.Size(60, 26);
+            this.radSymptomsNo.TabIndex = 22;
+            this.radSymptomsNo.TabStop = true;
+            this.radSymptomsNo.Text = "No";
+            this.radSymptomsNo.UseVisualStyleBackColor = true;
             // 
-            // rbSyes
+            // radSymptomsYes
             // 
-            this.rbSyes.AutoSize = true;
-            this.rbSyes.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbSyes.Location = new System.Drawing.Point(673, 428);
-            this.rbSyes.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.rbSyes.Name = "rbSyes";
-            this.rbSyes.Size = new System.Drawing.Size(69, 26);
-            this.rbSyes.TabIndex = 21;
-            this.rbSyes.TabStop = true;
-            this.rbSyes.Text = "Yes";
-            this.rbSyes.UseVisualStyleBackColor = true;
+            this.radSymptomsYes.AutoSize = true;
+            this.radSymptomsYes.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radSymptomsYes.Location = new System.Drawing.Point(20, 24);
+            this.radSymptomsYes.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.radSymptomsYes.Name = "radSymptomsYes";
+            this.radSymptomsYes.Size = new System.Drawing.Size(69, 26);
+            this.radSymptomsYes.TabIndex = 21;
+            this.radSymptomsYes.Text = "Yes";
+            this.radSymptomsYes.UseVisualStyleBackColor = true;
             // 
-            // rbTno
+            // radTravelledNo
             // 
-            this.rbTno.AutoSize = true;
-            this.rbTno.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbTno.Location = new System.Drawing.Point(748, 329);
-            this.rbTno.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.rbTno.Name = "rbTno";
-            this.rbTno.Size = new System.Drawing.Size(60, 26);
-            this.rbTno.TabIndex = 20;
-            this.rbTno.TabStop = true;
-            this.rbTno.Text = "No";
-            this.rbTno.UseVisualStyleBackColor = true;
+            this.radTravelledNo.AutoSize = true;
+            this.radTravelledNo.Checked = true;
+            this.radTravelledNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radTravelledNo.Location = new System.Drawing.Point(97, 32);
+            this.radTravelledNo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.radTravelledNo.Name = "radTravelledNo";
+            this.radTravelledNo.Size = new System.Drawing.Size(60, 26);
+            this.radTravelledNo.TabIndex = 20;
+            this.radTravelledNo.TabStop = true;
+            this.radTravelledNo.Text = "No";
+            this.radTravelledNo.UseVisualStyleBackColor = true;
             // 
-            // rbTyes
+            // radTravelledYes
             // 
-            this.rbTyes.AutoSize = true;
-            this.rbTyes.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbTyes.Location = new System.Drawing.Point(673, 329);
-            this.rbTyes.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.rbTyes.Name = "rbTyes";
-            this.rbTyes.Size = new System.Drawing.Size(69, 26);
-            this.rbTyes.TabIndex = 19;
-            this.rbTyes.TabStop = true;
-            this.rbTyes.Text = "Yes";
-            this.rbTyes.UseVisualStyleBackColor = true;
+            this.radTravelledYes.AutoSize = true;
+            this.radTravelledYes.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radTravelledYes.Location = new System.Drawing.Point(22, 32);
+            this.radTravelledYes.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.radTravelledYes.Name = "radTravelledYes";
+            this.radTravelledYes.Size = new System.Drawing.Size(69, 26);
+            this.radTravelledYes.TabIndex = 19;
+            this.radTravelledYes.Text = "Yes";
+            this.radTravelledYes.UseVisualStyleBackColor = true;
             // 
-            // rbCCno
+            // radCloseContactNo
             // 
-            this.rbCCno.AutoSize = true;
-            this.rbCCno.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbCCno.Location = new System.Drawing.Point(748, 229);
-            this.rbCCno.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.rbCCno.Name = "rbCCno";
-            this.rbCCno.Size = new System.Drawing.Size(60, 26);
-            this.rbCCno.TabIndex = 18;
-            this.rbCCno.TabStop = true;
-            this.rbCCno.Text = "No";
-            this.rbCCno.UseVisualStyleBackColor = true;
+            this.radCloseContactNo.AutoSize = true;
+            this.radCloseContactNo.Checked = true;
+            this.radCloseContactNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radCloseContactNo.Location = new System.Drawing.Point(97, 24);
+            this.radCloseContactNo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.radCloseContactNo.Name = "radCloseContactNo";
+            this.radCloseContactNo.Size = new System.Drawing.Size(60, 26);
+            this.radCloseContactNo.TabIndex = 18;
+            this.radCloseContactNo.TabStop = true;
+            this.radCloseContactNo.Text = "No";
+            this.radCloseContactNo.UseVisualStyleBackColor = true;
             // 
-            // rbCCYes
+            // radCloseContactYes
             // 
-            this.rbCCYes.AutoSize = true;
-            this.rbCCYes.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbCCYes.Location = new System.Drawing.Point(673, 229);
-            this.rbCCYes.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.rbCCYes.Name = "rbCCYes";
-            this.rbCCYes.Size = new System.Drawing.Size(69, 26);
-            this.rbCCYes.TabIndex = 17;
-            this.rbCCYes.TabStop = true;
-            this.rbCCYes.Text = "Yes";
-            this.rbCCYes.UseVisualStyleBackColor = true;
+            this.radCloseContactYes.AutoSize = true;
+            this.radCloseContactYes.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radCloseContactYes.Location = new System.Drawing.Point(22, 24);
+            this.radCloseContactYes.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.radCloseContactYes.Name = "radCloseContactYes";
+            this.radCloseContactYes.Size = new System.Drawing.Size(69, 26);
+            this.radCloseContactYes.TabIndex = 17;
+            this.radCloseContactYes.Text = "Yes";
+            this.radCloseContactYes.UseVisualStyleBackColor = true;
             // 
             // label11
             // 
@@ -657,13 +662,51 @@
             // 
             // btnScreeningSave
             // 
-            this.btnScreeningSave.Location = new System.Drawing.Point(429, 579);
+            this.btnScreeningSave.Location = new System.Drawing.Point(378, 584);
             this.btnScreeningSave.Name = "btnScreeningSave";
             this.btnScreeningSave.Size = new System.Drawing.Size(201, 46);
             this.btnScreeningSave.TabIndex = 30;
-            this.btnScreeningSave.Text = "button4";
+            this.btnScreeningSave.Text = "Save";
             this.btnScreeningSave.UseVisualStyleBackColor = true;
             this.btnScreeningSave.Click += new System.EventHandler(this.btnScreeningSave_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.radCloseContactNo);
+            this.panel1.Controls.Add(this.radCloseContactYes);
+            this.panel1.Location = new System.Drawing.Point(641, 201);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(200, 80);
+            this.panel1.TabIndex = 31;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.radSymptomsYes);
+            this.panel2.Controls.Add(this.radSymptomsNo);
+            this.panel2.Location = new System.Drawing.Point(643, 404);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(200, 70);
+            this.panel2.TabIndex = 31;
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.radTravelledYes);
+            this.panel3.Controls.Add(this.radTravelledNo);
+            this.panel3.Location = new System.Drawing.Point(641, 305);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(200, 83);
+            this.panel3.TabIndex = 31;
+            // 
+            // radFlagUser
+            // 
+            this.radFlagUser.AutoSize = true;
+            this.radFlagUser.Location = new System.Drawing.Point(663, 563);
+            this.radFlagUser.Name = "radFlagUser";
+            this.radFlagUser.Size = new System.Drawing.Size(140, 30);
+            this.radFlagUser.TabIndex = 32;
+            this.radFlagUser.TabStop = true;
+            this.radFlagUser.Text = "Flag User";
+            this.radFlagUser.UseVisualStyleBackColor = true;
             // 
             // frmMainCode
             // 
@@ -690,6 +733,12 @@
             this.gbReport.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -710,12 +759,12 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.DateTimePicker dtDate;
-        private System.Windows.Forms.RadioButton rbSno;
-        private System.Windows.Forms.RadioButton rbSyes;
-        private System.Windows.Forms.RadioButton rbTno;
-        private System.Windows.Forms.RadioButton rbTyes;
-        private System.Windows.Forms.RadioButton rbCCno;
-        private System.Windows.Forms.RadioButton rbCCYes;
+        private System.Windows.Forms.RadioButton radSymptomsNo;
+        private System.Windows.Forms.RadioButton radSymptomsYes;
+        private System.Windows.Forms.RadioButton radTravelledNo;
+        private System.Windows.Forms.RadioButton radTravelledYes;
+        private System.Windows.Forms.RadioButton radCloseContactNo;
+        private System.Windows.Forms.RadioButton radCloseContactYes;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
@@ -742,6 +791,10 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox cboUsers;
         private System.Windows.Forms.Button btnScreeningSave;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.RadioButton radFlagUser;
     }
 }
 

@@ -90,7 +90,32 @@ namespace PRG455._138564190
         #endregion
 
 
+        #region insert a new screening
+        /// <summary>
+        /// Insert a screening of a user
+        /// </summary>
+        /// <param name="screening"></param>
+        /// <returns></returns>
+        public static bool AddScreening(Screening screening)
+        {
 
+            var con = new SqlConnection(connectionString);
+
+            SqlDataAdapter dataAdapter = new SqlDataAdapter();
+
+
+
+
+            con.Open();
+            dataAdapter.InsertCommand = new SqlCommand("insert into [Screening] values ('" + screening.UserId + "','" + screening.CloseContact + "','" + screening.Travelled + "','" + screening.Symptoms + "','" + screening.Date + "')", con);
+            dataAdapter.InsertCommand.ExecuteNonQuery();
+
+
+
+            con.Close();
+            return true;
+        }
+        #endregion
 
 
 
