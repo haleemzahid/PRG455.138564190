@@ -1,6 +1,6 @@
 ﻿namespace PRG455._138564190
 {
-    partial class Form1
+    partial class frmMainCode
     {
         /// <summary>
         /// Required designer variable.
@@ -30,14 +30,13 @@
         {
             System.Windows.Forms.Label usernameLabel;
             System.Windows.Forms.Label userTypeLabel;
-            System.Windows.Forms.Label userFlaggedLabel;
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMainCode));
             this.tabApp = new System.Windows.Forms.TabControl();
             this.User = new System.Windows.Forms.TabPage();
             this.gbUser = new System.Windows.Forms.GroupBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.txtUserName = new System.Windows.Forms.TextBox();
             this.cboUserType = new System.Windows.Forms.ComboBox();
-            this.radUserFlagged = new System.Windows.Forms.RadioButton();
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnReset = new System.Windows.Forms.Button();
             this.btnRemove = new System.Windows.Forms.Button();
@@ -74,25 +73,24 @@
             this.label17 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.btnClear = new System.Windows.Forms.Button();
             usernameLabel = new System.Windows.Forms.Label();
             userTypeLabel = new System.Windows.Forms.Label();
-            userFlaggedLabel = new System.Windows.Forms.Label();
             this.tabApp.SuspendLayout();
             this.User.SuspendLayout();
             this.gbUser.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.Screening.SuspendLayout();
             this.gbScreen.SuspendLayout();
             this.Report.SuspendLayout();
             this.gbReport.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // usernameLabel
             // 
             usernameLabel.AutoSize = true;
-            usernameLabel.Location = new System.Drawing.Point(7, 219);
+            usernameLabel.Location = new System.Drawing.Point(7, 102);
             usernameLabel.Name = "usernameLabel";
             usernameLabel.Size = new System.Drawing.Size(128, 26);
             usernameLabel.TabIndex = 20;
@@ -101,20 +99,11 @@
             // userTypeLabel
             // 
             userTypeLabel.AutoSize = true;
-            userTypeLabel.Location = new System.Drawing.Point(7, 284);
+            userTypeLabel.Location = new System.Drawing.Point(8, 168);
             userTypeLabel.Name = "userTypeLabel";
             userTypeLabel.Size = new System.Drawing.Size(127, 26);
             userTypeLabel.TabIndex = 22;
             userTypeLabel.Text = "User Type:";
-            // 
-            // userFlaggedLabel
-            // 
-            userFlaggedLabel.AutoSize = true;
-            userFlaggedLabel.Location = new System.Drawing.Point(6, 368);
-            userFlaggedLabel.Name = "userFlaggedLabel";
-            userFlaggedLabel.Size = new System.Drawing.Size(161, 26);
-            userFlaggedLabel.TabIndex = 24;
-            userFlaggedLabel.Text = "User Flagged:";
             // 
             // tabApp
             // 
@@ -122,11 +111,11 @@
             this.tabApp.Controls.Add(this.Screening);
             this.tabApp.Controls.Add(this.Report);
             this.tabApp.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabApp.Location = new System.Drawing.Point(-2, 111);
+            this.tabApp.Location = new System.Drawing.Point(-2, 58);
             this.tabApp.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tabApp.Name = "tabApp";
             this.tabApp.SelectedIndex = 0;
-            this.tabApp.Size = new System.Drawing.Size(1438, 646);
+            this.tabApp.Size = new System.Drawing.Size(1438, 699);
             this.tabApp.TabIndex = 4;
             // 
             // User
@@ -137,7 +126,7 @@
             this.User.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.User.Name = "User";
             this.User.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.User.Size = new System.Drawing.Size(1430, 613);
+            this.User.Size = new System.Drawing.Size(1430, 666);
             this.User.TabIndex = 0;
             this.User.Text = "User";
             this.User.UseVisualStyleBackColor = true;
@@ -151,8 +140,7 @@
             this.gbUser.Controls.Add(this.txtUserName);
             this.gbUser.Controls.Add(userTypeLabel);
             this.gbUser.Controls.Add(this.cboUserType);
-            this.gbUser.Controls.Add(userFlaggedLabel);
-            this.gbUser.Controls.Add(this.radUserFlagged);
+            this.gbUser.Controls.Add(this.btnClear);
             this.gbUser.Controls.Add(this.btnEdit);
             this.gbUser.Controls.Add(this.btnReset);
             this.gbUser.Controls.Add(this.btnRemove);
@@ -168,11 +156,22 @@
             this.gbUser.Text = "User";
             this.gbUser.Enter += new System.EventHandler(this.gbUser_Enter);
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(560, 59);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 62;
+            this.dataGridView1.RowTemplate.Height = 28;
+            this.dataGridView1.Size = new System.Drawing.Size(859, 349);
+            this.dataGridView1.TabIndex = 26;
+            this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
+            // 
             // txtUserName
             // 
             this.txtUserName.BackColor = System.Drawing.SystemColors.Info;
             this.txtUserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUserName.Location = new System.Drawing.Point(140, 217);
+            this.txtUserName.Location = new System.Drawing.Point(186, 102);
             this.txtUserName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtUserName.Name = "txtUserName";
             this.txtUserName.Size = new System.Drawing.Size(291, 31);
@@ -183,25 +182,11 @@
             this.cboUserType.BackColor = System.Drawing.SystemColors.Info;
             this.cboUserType.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboUserType.FormattingEnabled = true;
-            this.cboUserType.Location = new System.Drawing.Point(140, 277);
+            this.cboUserType.Location = new System.Drawing.Point(186, 168);
             this.cboUserType.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cboUserType.Name = "cboUserType";
             this.cboUserType.Size = new System.Drawing.Size(291, 33);
             this.cboUserType.TabIndex = 23;
-            this.cboUserType.Text = "Select User";
-            // 
-            // radUserFlagged
-            // 
-            this.radUserFlagged.Checked = true;
-            this.radUserFlagged.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.radUserFlagged.Enabled = false;
-            this.radUserFlagged.Location = new System.Drawing.Point(173, 336);
-            this.radUserFlagged.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.radUserFlagged.Name = "radUserFlagged";
-            this.radUserFlagged.Size = new System.Drawing.Size(22, 90);
-            this.radUserFlagged.TabIndex = 25;
-            this.radUserFlagged.TabStop = true;
-            this.radUserFlagged.UseVisualStyleBackColor = true;
             // 
             // btnEdit
             // 
@@ -214,6 +199,7 @@
             this.btnEdit.TabIndex = 16;
             this.btnEdit.Text = "Edit User";
             this.btnEdit.UseVisualStyleBackColor = false;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // btnReset
             // 
@@ -239,15 +225,16 @@
             this.btnRemove.TabIndex = 13;
             this.btnRemove.Text = "Remove User";
             this.btnRemove.UseVisualStyleBackColor = false;
+            this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
             // 
             // btnAdd
             // 
             this.btnAdd.BackColor = System.Drawing.Color.Transparent;
             this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdd.Location = new System.Drawing.Point(7, 425);
+            this.btnAdd.Location = new System.Drawing.Point(248, 254);
             this.btnAdd.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(110, 75);
+            this.btnAdd.Size = new System.Drawing.Size(164, 75);
             this.btnAdd.TabIndex = 12;
             this.btnAdd.Text = "Add User";
             this.btnAdd.UseVisualStyleBackColor = false;
@@ -260,7 +247,7 @@
             this.Screening.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Screening.Name = "Screening";
             this.Screening.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.Screening.Size = new System.Drawing.Size(1430, 613);
+            this.Screening.Size = new System.Drawing.Size(1430, 666);
             this.Screening.TabIndex = 1;
             this.Screening.Text = "Screening";
             this.Screening.UseVisualStyleBackColor = true;
@@ -468,7 +455,7 @@
             this.Report.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Report.Name = "Report";
             this.Report.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.Report.Size = new System.Drawing.Size(1430, 613);
+            this.Report.Size = new System.Drawing.Size(1430, 666);
             this.Report.TabIndex = 2;
             this.Report.Text = "Report";
             this.Report.UseVisualStyleBackColor = true;
@@ -624,23 +611,26 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(297, 25);
+            this.label1.Location = new System.Drawing.Point(301, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(787, 52);
             this.label1.TabIndex = 5;
             this.label1.Text = "COVID SCREENING APPLICATION";
             // 
-            // dataGridView1
+            // btnClear
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(560, 59);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 62;
-            this.dataGridView1.RowTemplate.Height = 28;
-            this.dataGridView1.Size = new System.Drawing.Size(859, 349);
-            this.dataGridView1.TabIndex = 26;
+            this.btnClear.BackColor = System.Drawing.Color.Transparent;
+            this.btnClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClear.Location = new System.Drawing.Point(586, 426);
+            this.btnClear.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(101, 75);
+            this.btnClear.TabIndex = 16;
+            this.btnClear.Text = "Clear";
+            this.btnClear.UseVisualStyleBackColor = false;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
-            // Form1
+            // frmMainCode
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -650,13 +640,14 @@
             this.Controls.Add(this.label1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.Name = "Form1";
+            this.Name = "frmMainCode";
             this.Text = "SCREENING";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.tabApp.ResumeLayout(false);
             this.User.ResumeLayout(false);
             this.gbUser.ResumeLayout(false);
             this.gbUser.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.Screening.ResumeLayout(false);
             this.gbScreen.ResumeLayout(false);
             this.gbScreen.PerformLayout();
@@ -664,7 +655,6 @@
             this.gbReport.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -712,8 +702,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtUserName;
         private System.Windows.Forms.ComboBox cboUserType;
-        private System.Windows.Forms.RadioButton radUserFlagged;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button btnClear;
     }
 }
 

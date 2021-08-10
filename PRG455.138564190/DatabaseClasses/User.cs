@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PRG455._138564190.DatabaseClasses
 {
-    class User
+  public  class User
     {
         public int UserId { get; set; }
         public string UserName { get; set; }

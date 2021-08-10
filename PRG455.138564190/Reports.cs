@@ -4,12 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PRG455._138564190.DatabaseClasses
+namespace PRG455._138564190
 {
-   public class Screening
+  public  class Reports
     {
-        public int ScreeningId { get; set; }
         public int UserId { get; set; }
+        public string UserName { get; set; }
         public bool CloseContact { get; set; }
         public bool Travelled { get; set; }
         public bool Symptoms { get; set; }
